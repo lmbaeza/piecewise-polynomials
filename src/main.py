@@ -38,13 +38,41 @@ beta = gauss(HH1)
 
 y_hat = multiply(H, to_col(beta))
 
+# Ploting
+import tkinter
+
+from matplotlib.backends.backend_tkagg import (
+    FigureCanvasTkAgg, NavigationToolbar2Tk)
+from matplotlib.backend_bases import key_press_handler
+from matplotlib.figure import Figure
+
 import matplotlib.pyplot as plt
 
-plt.plot(x_data, y_data, 'o')
-plt.plot(x_data, y_target, color='red')
-plt.plot(x_data, y_hat, color='orange')
-plt.title('Piecewise Cubic Polynomials')
+# plt.plot(x_data, y_data, 'o')
+# plt.plot(x_data, y_target, color='red')
+# plt.plot(x_data, y_hat, color='orange')
+# plt.title('Piecewise Cubic Polynomials')
+# plt.legend(["data", "Target", "Regression Splines"])
+# plt.show()
 
-plt.legend(["data", "Target", "Regression Splines"])
+class Windows:
 
-plt.show()
+    def __init__(self, window):
+        self.frame = window
+
+        self.frame.wm_title("Piecewise Cubic Polynomials")
+
+        tkinter.Button(self.frame, text="HI").grid(row=0, column=0)
+
+        fig = Figure(figsize=(5, 4), dpi=100)
+
+        fig.add_subplot(111).plot(x_data, y_data, 'o', x_data, y_target, 'r', x_data, y_hat, 'orange')
+
+        canvas = FigureCanvasTkAgg(fig, master=self.frame)  # A tk.DrawingArea.
+        canvas.draw()
+        # canvas.get_tk_widget().pack(side=tkinter.TOP, fill=tkinter.BOTH, expand=1)
+        canvas.get_tk_widget().grid(row=1, column=0)
+
+root = tkinter.Tk()
+Window = Windows(root)
+tkinter.mainloop()
