@@ -1,6 +1,7 @@
 import random
 import sys
 
+
 def cmp(a, b):
     a = float(a)
     b = float(b)
@@ -27,11 +28,11 @@ def my_linspace(mn, mx, intervals):
     # return np.linspace(mn, mx, intervals)
     return output
 
-def function(data, funct):
+def function(data, funct, dispersion):
     output = []
     target = []
     for i in data:
-        delta = random.uniform(-1.0, 1.0)
+        delta = random.uniform(-dispersion, dispersion)
         output.append(funct(i) + delta)
         target.append(funct(i))
     return output, target
@@ -93,7 +94,8 @@ def gauss(a):
     # Applying Gauss Elimination
     for i in range(n):
         if a[i][i] == 0.0:
-            sys.exit('Divide by zero detected!')
+            # sys.exit('Divide by zero detected!')
+            return False
         
         for j in range(i+1, n):
             ratio = float(a[j][i]/a[i][i])
