@@ -1,12 +1,20 @@
 # Piecewise Polynomials
 
+## Descargar
+
+```shell
+git clone https://github.com/lmbaeza/piecewise-polynomials.git
+```
+
 ## Instalar Dependencias
 
 ```shell
+cd piecewise-polynomials
+
 pip install -r requirements.txt # or
 pip3 install -r requirements.txt
 
-# Solo para Linux
+# Solo para Linux (para windows y MacOs ya viene instalado)
 sudo apt-get install python3-tk
 ```
 

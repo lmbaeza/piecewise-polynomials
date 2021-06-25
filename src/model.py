@@ -1,7 +1,6 @@
 # Desarrollo del modelo "Piecewise Cubic Polynomials"
 # Expuesto en el capítulo 5.2 del libro "The Elements of Statistical Learning"
 
-import math
 from lib import *
 
 class PiecewiseCubicPolynomials:

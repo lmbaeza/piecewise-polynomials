@@ -7,19 +7,23 @@
 
 # Piecewise Polynomials and Splines5
 
-import sys
-from model import PiecewiseCubicPolynomials
-from lib import *
-import math
-from data import EXAMPLE_DATA
-
-# Ploting
+# Importar Librerias de la Interfaz Grafica
 import tkinter
 from tkinter import ttk
+from tkinter import messagebox
 
+# Importar libreria para graficar los datos
 from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg
 from matplotlib.figure import Figure
-from tkinter import messagebox
+
+# Importar el Modelo
+from model import PiecewiseCubicPolynomials
+# Importar algunas funciones matematicas implementadas
+from lib import *
+# Importar los datos de ejemplo
+from data import EXAMPLE_DATA
+
+from math import cos, sin
 
 class Windows:
 
@@ -71,11 +75,12 @@ class Windows:
         self.inputText = tkinter.Text(self.frame, height=10, width=55, bg="light yellow")
         self.inputText.grid(row=0, column=1, rowspan=4)
 
+        # Boton que permite refrescar el grafico
         self.refresh = tkinter.Button(self.frame, text="Refrescar Grafico", command=self.refreshClick)
         self.refresh.grid(row=6, column=0)
 
         # Mostrar Grafica
-        self.getDataWithFuncion(math.cos, 1.0)
+        self.getDataWithFuncion(cos, 1.0)
         self.updatePlot(self.x_data, self.y_data, self.y_target, self.y_hat)
     
     def getDataWithFuncion(self, funct, dispersion):
@@ -129,7 +134,6 @@ class Windows:
                 self.inputText.insert(tkinter.INSERT, EXAMPLE_DATA)
                 self.readData()
                 self.canRead = True
-                
 
     def callselectGenerator(self, event=None):
         print("From callselectGenerator")
@@ -138,10 +142,10 @@ class Windows:
                 event = event.widget.get()
 
             if event == "cos":
-                self.getDataWithFuncion(math.cos, 1.0)
+                self.getDataWithFuncion(cos, 1.0)
                 self.updatePlot(self.x_data, self.y_data, self.y_target, self.y_hat)
             elif event == "sin":
-                self.getDataWithFuncion(math.sin, 1.0)
+                self.getDataWithFuncion(sin, 1.0)
                 self.updatePlot(self.x_data, self.y_data, self.y_target, self.y_hat)
             elif event == "2*x":
                 def f(x):
@@ -196,8 +200,6 @@ class Windows:
             self.y_hat = []
             self.inputText.delete("1.0", "end")
             messagebox.showinfo(message="Datos Invalidos", title="Error")
-
-        # print(len(self.x_data), len(self.y_data), len(self.y_target), len(self.y_hat))
 
         self.updatePlot(self.x_data, self.y_data, self.y_target, self.y_hat)
     

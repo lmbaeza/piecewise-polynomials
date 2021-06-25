@@ -1,6 +1,4 @@
 import random
-import sys
-
 
 def cmp(a, b):
     a = float(a)
@@ -25,7 +23,6 @@ def my_linspace(mn, mx, intervals):
         current += factor
         output.append(current)
 
-    # return np.linspace(mn, mx, intervals)
     return output
 
 def function(data, funct, dispersion):
@@ -73,12 +70,8 @@ def to_col(data):
 def multiply(matrix1, matrix2):
     row1 = len(matrix1)
     col1 = len(matrix1[0])
-    
-    row2 = len(matrix2)
     col2 =  len(matrix2[0])
     
-    # output = [[0]*col2]*row1
-
     output = [[0 for _ in range(col2)] for _ in range(row1)]
     
     for i in range(row1):
@@ -91,10 +84,10 @@ def multiply(matrix1, matrix2):
 def gauss(a):
     n = len(a)
     x = [0.0]*n
-    # Applying Gauss Elimination
+    # Aplicar Eliminación Gausiana
     for i in range(n):
         if a[i][i] == 0.0:
-            # sys.exit('Divide by zero detected!')
+            # Divide by zero detected!
             return False
         
         for j in range(i+1, n):
@@ -103,7 +96,7 @@ def gauss(a):
             for k in range(n+1):
                 a[j][k] = float(a[j][k] - ratio * a[i][k])
     
-    # Back Substitution
+    # Sustitución hacia atras
     x[n-1] = float(a[n-1][n]/a[n-1][n-1])
     
     for i in range(n-2, -1,-1):
@@ -114,21 +107,3 @@ def gauss(a):
         
         x[i] = float(x[i]/a[i][i])
     return x
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
