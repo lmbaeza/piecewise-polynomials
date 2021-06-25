@@ -1,3 +1,12 @@
+# Integrantes:
+# Camilo Ernesto Vargas Romero        camevargasrom@unal.edu.co 
+# Sarah Lancheros Soler               slancheross@unal.edu.co 
+# Gustavo Galvez Bello                ggalvezb@unal.edu.co 
+# Luis Miguel Báez Aponte             lmbaeza@unal.edu.co
+# Jefferson Daniel Castro             jedcastroag@unal.edu.co 
+
+# Piecewise Polynomials and Splines
+
 import math
 from lib import *
 
@@ -36,7 +45,7 @@ import matplotlib.pyplot as plt
 plt.plot(x_data, y_data, 'o')
 plt.plot(x_data, y_target, color='red')
 plt.plot(x_data, y_hat, color='orange')
-plt.title('Cubic Spline')
+plt.title('Piecewise Cubic Polynomials')
 
 plt.legend(["data", "Target", "Regression Splines"])
 
