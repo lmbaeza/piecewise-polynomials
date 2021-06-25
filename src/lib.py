@@ -1,4 +1,3 @@
-import math
 import random
 import sys
 
@@ -28,12 +27,14 @@ def my_linspace(mn, mx, intervals):
     # return np.linspace(mn, mx, intervals)
     return output
 
-def my_cos(data):
+def function(data, funct):
     output = []
+    target = []
     for i in data:
-        delta = random.uniform(-0.5, 0.5)
-        output.append(math.cos(i) + delta)
-    return output
+        delta = random.uniform(-1.0, 1.0)
+        output.append(funct(i) + delta)
+        target.append(funct(i))
+    return output, target
 
 def my_ones(data):
     output = []

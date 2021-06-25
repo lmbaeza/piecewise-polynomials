@@ -14,9 +14,7 @@ from lib import *
 x_min, x_knot_1, x_knot_2, x_max = -1, 1.5, 4.5, 7
 
 x_data = my_linspace(x_min, x_max, 50)
-y_data = my_cos(x_data)
-
-y_target = [math.cos(x) for x in x_data]
+y_data, y_target = function(x_data, math.cos)
 
 h1 = my_ones(x_data)
 h2 = x_data.copy()
