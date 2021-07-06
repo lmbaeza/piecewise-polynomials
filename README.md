@@ -8,6 +8,8 @@ git clone https://github.com/lmbaeza/piecewise-polynomials.git
 
 ## Instalar Dependencias
 
+**Nota:** Debe tener [python3](https://www.python.org/downloads/) instalado
+
 ```shell
 cd piecewise-polynomials
 
